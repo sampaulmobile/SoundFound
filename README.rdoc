@@ -1,28 +1,8 @@
-== README
+== SoundFound
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is essentially a SoundCloud plugin in the form of a website that enables you to filter your SoundCloud stream.
 
-Things you may want to cover:
+Mostly just used this as a way to explore rails + SoundCloud APIs.
 
-* Ruby version
+Ruby 2.0.0 + Rails 4.0.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
