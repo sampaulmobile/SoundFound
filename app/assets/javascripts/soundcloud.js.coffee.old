@@ -1,0 +1,49 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+#
+
+#jQuery(function(){
+#});
+
+jQuery ->
+  $("#plays_slider").slider({
+      value:100,
+      min: 5,
+      max: 200,
+      step: 5,
+      change: (event, ui) ->
+        $('input#alert_play_count_min').val(ui.value)
+        $('#play_count').innerText("TESTING")
+  });
+
+jQuery ->
+  $("#likes_slider").slider({
+      value:100,
+      min: 5,
+      max: 200,
+      step: 5,
+      change: (event, ui) ->
+        $('input#alert_like_count_min').val(ui.value)
+  });
+
+jQuery ->
+  $("#downloads_slider").slider({
+      value:100,
+      min: 5,
+      max: 200,
+      step: 5,
+      change: (event, ui) ->
+        $('input#alert_download_count_min').val(ui.value)
+  });
+
+jQuery ->
+  $("#duration_slider").slider({
+      value:100,
+      min: 5,
+      max: 200,
+      step: 5,
+      change: (event, ui) ->
+        $('input#alert_duration_min').val(ui.value)
+  });
+

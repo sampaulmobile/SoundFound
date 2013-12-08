@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Summary of Matches</title>
+    <style type="text/css">
+      body, td { color:#000000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+      .divider { background-color:#555555; height:2px; }
+      .alert h2 { margin-top:0; margin-bottom:8px; font-size:18px; }
+      .alert p { margin:8px 0; }
+      .alert img { border:solid 1px #777777; }
+      .alert .duration { font-size:11px;color:#555555; }
+      #footer { font-size:11px; color:#555555; }
+      #footer a { color:#555555;}
+    </style>
+  </head>
+  <body>
+    <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+      <% @tracks.each do |t| %>
+        <tr>
+          <td><%= t.title %></td>
+          <td>Plays: <%= t.play_count %></td>
+          <td>Likes: <%= t.favorite_count %></td>
+          <td>Downloads: <%= t.download_count %></td>
+          <td>Length: <%= convert_ms_to_time(t.duration) %></td>
+          <td><%= link_to "Listen to Song", t.get_download_url %></td>
+          <% if t.downloadable? %>
+            <td><%= link_to "Download Song", t.get_download_url %></td>
+          <% end %>
+        </tr>
+      <% end %>
+
+      <tr>
+        <td id="footer" colspan="2" align="center">
+          <p><a href="#">Unsubscribe</a> if you do not wish to receive these emails in the future.</p>
+          <p>&copy;2013 SoundFound</p>
+        </td>
+      </tr>
+    </table>
+
+    Enjoy!!!
+
+    -SoundFound
+  </body>
+</html>

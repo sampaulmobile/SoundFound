@@ -1,0 +1,3 @@
+alert("ALERT ADDED");
+$("#rec_tracks").html("<%= escape_javascript(render(partial: 'track', collection: @recommended_tracks, as: 'track')) %>");
+$("#user_alerts").html("<%= escape_javascript(render(current_soundcloud_users.alerts)) %>");

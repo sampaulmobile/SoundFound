@@ -1,0 +1,12 @@
+# Sample configuration file for Sidekiq.
+# Options here can still be overridden by cmd line args.
+#   sidekiq -C config.yml
+---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:concurrency:  2
+:queues:
+  - [stream_updater, 5]
+  - [match_mailer, 4]
+  - [summary_mailer, 3]
+  - [default, 1]

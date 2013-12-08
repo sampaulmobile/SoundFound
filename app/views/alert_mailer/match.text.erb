@@ -1,0 +1,21 @@
+Hello <%= @user %>!!
+
+Found a new match for the alert <%= @alert %>!
+
+
+<%= @track.title %>
+Plays: <%= @track.play_count %>
+Likes: <%= @track.favorite_count %>
+Downloads: <%= @track.download_count %>
+Length: <%= @track.duration %>
+
+
+Listen to Song: <%= @track.get_track_url %>
+<% if @track.downloadable? %>
+  Download Song: <%= @track.get_download_url %>
+<% end %>
+
+
+Enjoy,
+
+SoundFound

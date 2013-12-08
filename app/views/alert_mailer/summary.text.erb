@@ -1,0 +1,15 @@
+Hey <%= @user %>!
+
+Track Summary:
+
+<% @tracks.each do |t| %>
+  <%= t.title %>
+  Plays: <%= t.play_count %>
+  Likes: <%= t.favorite_count %>
+  Downloads: <%= t.download_count %>
+  Length: <%= convert_ms_to_time(t.duration) %>
+  Listen to Song - <%= t.get_download_url %>
+  <% if t.downloadable? %>
+    Download Song - <%= t.get_download_url %>
+  <% end %>
+<% end %>

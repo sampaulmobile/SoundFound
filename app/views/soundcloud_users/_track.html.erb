@@ -1,0 +1,27 @@
+<div align="center">
+  <iframe id="sc-widget"
+    src=<%= track.get_widget_url %>
+    width="99%"
+    height="120"
+    frameborder="no"></iframe>
+  <br>
+  <li>
+  <span class="timestamp">
+    <% if not track.uploaded_at.nil? %>
+      <%= time_ago_in_words(track.uploaded_at) %>
+    <% end %>
+  </span>
+  -
+  <span class="title">Plays: <%= track.play_count %></span>
+  <span class="title">Likes: <%= track.favorite_count %></span>
+  <span class="title">DLs: <%= track.download_count %></span>
+  <span class="title">Comments: <%= track.comment_count %></span>
+  <%= link_to "Like", like_track_path(track_id: track.track_id) %>
+  <%= link_to "Unlike", unlike_track_path(track_id: track.track_id) %>
+  <%= link_to "Download", track.get_download_url %>
+  
+  <br>
+  <%#= link_to "Download", controller: "soundcloud", action: "download", filename: track.title+".mp3", filepath: track.get_download_url %>
+  </li>
+</div>
+

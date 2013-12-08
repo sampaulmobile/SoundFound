@@ -1,0 +1,5 @@
+<% if user_signed_in? && current_soundcloud_user %>
+  <%= render 'home_user' %>
+<% else %> 
+  <%= render 'home_new_user' %>
+<% end %> 

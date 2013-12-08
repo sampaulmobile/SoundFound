@@ -1,0 +1,12 @@
+<% if soundcloud_logged_in? %>
+  Current User: 
+  <%= current_soundcloud_user.username %>
+  <%= link_to "Disconnect From SoundCloud", soundcloud_disconnect_path, :class => "disconnect" %>
+<% else %>
+  <center>
+    <div align=center class="connect-with-soundcloud <%= "connected" if soundcloud_logged_in? %>">
+      <%= link_to "Connect With SoundCloud", soundcloud_client.authorize_url, :class => "connect" %>
+    </div>
+  </center>
+<% end %>
+

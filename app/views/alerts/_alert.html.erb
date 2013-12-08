@@ -1,0 +1,44 @@
+<tr<%= alert_added?(alert) %>>
+  <td>
+    <% if alert.play_count_min && alert.play_count_min != -1 %>
+      &ge; <%= alert.play_count_min %>
+    <% end %>
+  </td>
+  <td>
+    <% if alert.like_count_min && alert.like_count_min != -1 %>
+      &ge; <%= alert.like_count_min %>
+    <% end %>
+  </td>
+  <td>
+    <% if alert.download_count_min && alert.download_count_min != -1 %>
+      &ge; <%= alert.download_count_min %>
+    <% end %>
+  </td>
+  <td>
+    <% if alert.duration_min %>
+      <%= number_with_precision(alert.duration_min/60/1000, precision: 2) %> - 
+    <% end %>
+    <% if alert.duration_max %>
+      <%= number_with_precision(alert.duration_max/60/1000, precision: 2) %>
+    <% end %>
+  </td>
+
+  <td style="text-align:center">
+    <%= alert.downloadable ? "\u2713" : "" %>  <%# checkmark %>
+  </td>
+  <td>
+    <%= alert.unplayed ? "\u2713" : "" %> <%# checkmark %>
+  </td>
+
+  <td style="text-align:center">
+    <% if user_session[:alerts] && user_session[:alerts].include?(alert.id.to_s) %>
+      <%= link_to "-", remove_alert_path(alert_id: alert.id) %> 
+    <% else %>
+      <%= link_to("+", add_alert_path(alert_id: alert.id)) %> 
+    <% end %>
+  </td>
+  <td style="text-align:center">
+    <%= link_to "X", delete_alert_path(alert_id: alert.id) %> 
+  </td>
+
+</tr>

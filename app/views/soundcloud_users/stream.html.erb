@@ -1,0 +1,58 @@
+<%= provide(:title, current_soundcloud_user.username) %>
+
+<% content_for :head do %>
+  <%= render 'head' %>
+<% end %>
+
+<h2>
+  <%= current_soundcloud_user.username %><%= current_soundcloud_user.email %>
+</h2>
+
+<div align=center>
+  <% if false %>
+    <div id="chart1" style="width:600px; height:250px;"></div>
+  <% end %>
+</div>
+
+<div align=center>
+</div>
+
+<div class="colmask leftmenu">
+  <div class="colright">
+
+    <div class="col1wrap">
+      <div class="col1">
+        <div id="rec_tracks">
+          <%= render partial: 'track', collection: @recommended_tracks, as: 'track' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col2">
+      <%= render 'alerts/alert_form' %>
+
+      <table class="alert_table">
+        <thead>
+          <tr>
+            <th style="text-align:center">&#x25B6;</th> <%# Plays %>
+            <th style="text-align:center">&#x2764;</th> <%# Likes %>
+            <th style="text-align:center">&#x2193;</th> <%# Downloads %>
+            <th style="text-align:center">&#x21D4;</th> <%# Length %>
+            <th style="text-align:center">DL</th>
+            <th style="text-align:center">New</th>
+            <th style="text-align:center">+/-</th>
+            <th style="text-align:center">X</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <div id="user_alerts">
+            <%= render current_soundcloud_user.alerts %>
+          </div>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

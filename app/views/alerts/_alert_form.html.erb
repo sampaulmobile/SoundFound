@@ -1,0 +1,83 @@
+<%= form_for(@new_alert) do |f| %>
+  <%= render 'layouts/error_messages', object: f.object %>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          <div class="alert_slider" id="plays_slider"></div>
+          <%= f.hidden_field :play_count_min, value: "" %>
+          <%= f.hidden_field :play_count_max, value: "" %>
+        </th>
+        <th>
+          <label id="play_count">>= 0 Plays</label>
+        </th>
+      </tr>
+      
+      <tr>
+        <th>
+          <div class="alert_slider" id="likes_slider"></div>
+          <%= f.hidden_field :like_count_min, value: "" %>
+          <%= f.hidden_field :like_count_max, value: "" %>
+        </th>
+        <th>
+          <label id="like_count">>= 0 Likes</label>
+        </th>
+      </tr>
+      
+      <tr>
+        <th>
+          <div class="alert_slider" id="downloads_slider"></div>
+          <%= f.hidden_field :download_count_min, value: "" %>
+          <%= f.hidden_field :download_count_max, value: "" %>
+        </th>
+        <th>
+          <label id="download_count">>= 0 D/Ls</label>
+        </th>
+      </tr>
+      
+      <tr>
+        <th>
+          <div class="alert_slider" id="duration_slider"></div>
+          <%= f.hidden_field :duration_min, value: "" %>
+          <%= f.hidden_field :duration_max, value: "" %>
+        </th>
+        <th>
+          <label id="duration">>= 0 Min</label>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          <p class="field switch">
+            <label class="cb-enable"><span>DLable</span></label>
+            <label class="cb-disable selected"><span>Not DLable</span></label>
+            <%= f.check_box :downloadable, { id: "checkbox", class: "checkbox"} %>
+          </p>
+        </th>
+          
+        <th>
+          <p class="field switch">
+            <label class="cb-enable"><span>Only New</span></label>
+            <label class="cb-disable selected"><span>Not New</span></label>
+            <%= f.check_box :unplayed, { id: "checkbox", class: "checkbox"} %>
+          </p>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <% if false %>
+    <%= f.fields_for :alert_actions do |aa| %>
+      Download - <%= aa.check_box :download %>
+      Like - <%= aa.check_box :like %>
+      Email Me - <%= aa.check_box :email %>
+    <% end %>
+  <% end %>
+  <div align="center">
+    <%= f.submit "Create alert", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

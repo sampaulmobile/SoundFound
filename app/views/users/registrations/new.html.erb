@@ -1,0 +1,43 @@
+
+<% content_for :head do %>
+
+  <script>
+    function checkform() {
+      var f = document.getElementById('user_form').elements;
+      var cansubmit = true;
+
+      for (var i = 0; i < f.length; i++) {
+        if (f[i].value.length == 0)
+          cansubmit = false;
+      }
+
+      document.getElementById('submitbutton').disabled = !cansubmit;
+    }
+    window.onload = checkform;
+  </script>
+
+<% end %>
+
+
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :id => "user_form" }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div align=center>
+    <div><%= f.label :email %><%= f.email_field :email, size: 50, :autofocus => true %></div>
+
+    <div><%= f.label :password %><%= f.password_field :password, size: 50 %></div>
+
+    <% if false %>
+      <div><%= f.label :password_confirmation %><%= f.password_field :password_confirmation, size: 50 %></div>
+    <% end %>
+
+    <br>
+    <div class="connect-with-soundcloud">
+      <input class="connect" id="submitbutton" type="submit" visible="false" value="Submit" />
+    </div>
+  </div>
+<% end %>
+
